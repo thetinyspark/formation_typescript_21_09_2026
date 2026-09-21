@@ -1,37 +1,33 @@
 export class Heroe{
-    // public name:string = "";
-    // public hp:number = 0; 
-    // public atk:number = 0; 
-    // public def:number = 0; 
 
-    // constructor(
-    //     p_name:string = "", 
-    //     p_hp:number = 0, 
-    //     p_atk:number = 0, 
-    //     p_def:number = 0
-    // ){
-    //     this.name = p_name;
-    //     this.hp = p_hp;
-    //     this.atk = p_atk;
-    //     this.def = p_def;
-    // }
-
-    // écriture raccourcie / sucre syntaxique
     constructor(
-        public name:string = "",
-        public hp:number = 0,
-        public atk:number = 0, 
-        public def:number = 0 
+        private _name:string = "",
+        private _hp:number = 0,
+        private _atk:number = 0, 
+        private _def:number = 0 
     ){}
+
+    private _calcDmg(def:number, atk:number):number{
+        // si la défense est supérieure à l'atk, alors on retourne
+        if( def >= atk )
+            return 0; 
+        else
+            return atk - def; // sinon on retourne la diff
+    }
 
 
     public fight(opponent:Heroe):void{
+        opponent._hp -= this._calcDmg(opponent._def, this._atk);
+    }
 
-        // si la défense est supérieure à l'atk, alors il ne se passe rien
-        if( opponent.def > this.atk )
-            return;
+    public getHP(){
+        return this._hp;
+    }
 
-        // sinon on soustrait aux hp de l'ennemi la différence entre sa def et notre atk
-        opponent.hp -= (opponent.def - this.atk);
+    public isDead():boolean{
+        if( this._hp <= 0 )
+            return true;
+        else
+            return false;
     }
 }
