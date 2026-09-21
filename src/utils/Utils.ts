@@ -63,10 +63,10 @@ export function getIdCards():IDCard[]{
     return result;
 }
 
-export function getIdCardsWithSalaries():Map<IDCard,EmployeeWithSalary>{
+export function getIdCardsWithSalaries():Map<IDCard,EmployeeWithSalary|null>{
 
     // on construit notre map
-    const map:Map<IDCard,EmployeeWithSalary> = new Map<IDCard,EmployeeWithSalary>();
+    const map:Map<IDCard,EmployeeWithSalary|null> = new Map<IDCard,EmployeeWithSalary|null>();
 
     // on récupère nos données brutes depuis les deux fonctions utilitaires
     const employees:EmployeeWithSalary[] = getEmployeesWithSalaries();
@@ -78,7 +78,7 @@ export function getIdCardsWithSalaries():Map<IDCard,EmployeeWithSalary>{
         const currentCard = cards[i];
 
         // on recherche la donnée de type EmployeeWithSalary qui correspond à la carte en cours
-        const corresp:EmployeeWithSalary = employees.find(
+        const corresp:EmployeeWithSalary|null = employees.find(
             (currentEmployee:EmployeeWithSalary)=>{
                 // si l'employeeId de la carte et de l'employé en cours correspondent
                 // alors la fonction renvoie true et 'const corresp' vaut notre employee
