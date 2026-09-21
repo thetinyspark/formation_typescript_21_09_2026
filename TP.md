@@ -1,11 +1,10 @@
-TP n°1
+TP n°2
 
-- Créez votre type customisé nommé IdCard, ce type devra contenir les valeurs suivantes: 
+- On garde le type IdCard
+- Puis on crée un nouveau type City qui aura la description suivante:
 
     - Une chaîne de caractères comportant le nom
-    - Une chaîne de caractères comportant le prenom
-    - Une chaîne de caractères comportant la date de naissance
-    - Un nombre pour l'âge
-    - Un boolean qui indique si on est retraité
+    - Un nombre comportant le code postal
+    - Un autre nombre comportant le nombre d'habitants
 
-Puis déclarez une variable de ce type contenant les vos infos personnelles.
+- Puis créez une Map<IdCard,City> associant votre profil à votre ville
