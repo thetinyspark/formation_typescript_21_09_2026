@@ -9,4 +9,4 @@ const sonic:Heroe = new Heroe("Sonic", 300, 15000, 20);
 
 sonic.reinforce();
 spiderman.fight(sonic); 
-console.log(sonic.getHP());
+console.log(sonic.hp);

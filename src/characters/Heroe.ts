@@ -3,7 +3,7 @@ export class Heroe{
     private _reinforced:boolean = false;
 
     constructor(
-        private _name:string = "",
+        public name:string = "",
         private _hp:number = 0,
         private _atk:number = 0, 
         private _def:number = 0 
@@ -22,18 +22,39 @@ export class Heroe{
     }
 
     public fight(opponent:Heroe):void{
-        opponent.setHP( opponent.getHP() - this._calcDmg(opponent.getDef(), this._atk) );
+        opponent.hp -= this._calcDmg(opponent.def, this._atk);
     }
 
-    public setHP(value:number){
+
+
+    // accessors 
+
+    //issers
+    public isDead():boolean{
+        if( this._hp <= 0 )
+            return true;
+        else
+            return false;
+    }
+
+    // setters
+    public set hp(value:number){
         this._hp = value;
+        if( this._hp < 0 )
+            this._hp = 0;
     }
 
-    public getHP(){
+    // getters
+    public get hp(){
         return this._hp;
     }
 
-    public getDef(){
+    
+    public set def(value:number){
+        this._def = value;
+    }
+
+    public get def(){
         if( this._reinforced === true ){
             this._reinforced = false;
             return this._def * 2;
@@ -43,18 +64,14 @@ export class Heroe{
         }
     }
 
-    public getAtk(){
+
+    public set atk(value:number){
+        this._atk = value;
+    }
+
+    public get atk(){
         return this._atk;
     }
 
-    public getName(){
-        return this._name;
-    }
-
-    public isDead():boolean{
-        if( this._hp <= 0 )
-            return true;
-        else
-            return false;
-    }
+    
 }
