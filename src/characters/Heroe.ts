@@ -1,5 +1,7 @@
 export class Heroe{
 
+    private _reinforced:boolean = false;
+
     constructor(
         private _name:string = "",
         private _hp:number = 0,
@@ -15,13 +17,38 @@ export class Heroe{
             return atk - def; // sinon on retourne la diff
     }
 
+    public reinforce():void{
+        this._reinforced = true;
+    }
 
     public fight(opponent:Heroe):void{
-        opponent._hp -= this._calcDmg(opponent._def, this._atk);
+        opponent.setHP( opponent.getHP() - this._calcDmg(opponent.getDef(), this._atk) );
+    }
+
+    public setHP(value:number){
+        this._hp = value;
     }
 
     public getHP(){
         return this._hp;
+    }
+
+    public getDef(){
+        if( this._reinforced === true ){
+            this._reinforced = false;
+            return this._def * 2;
+        }
+        else{
+            return this._def;
+        }
+    }
+
+    public getAtk(){
+        return this._atk;
+    }
+
+    public getName(){
+        return this._name;
     }
 
     public isDead():boolean{
