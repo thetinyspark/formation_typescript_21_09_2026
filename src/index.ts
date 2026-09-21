@@ -1,37 +1,32 @@
-enum Cardinal{
-    NORTH = "Chnord", 
-    SOUTH = "Ici c'est Toulouse", 
-    EAST = "On aime le pain d'épice et le concordat", 
-    WEST = "Vive la bretagne"
+type IdCard = {
+    lastname:string,
+    name:string, 
+    birth:string, 
+    age:number, 
+    retired?:boolean
 }; 
 
-// const direction1:Cardinal = Cardinal.NORTH;
-// const direction2:Cardinal = Cardinal.SOUTH;
-// const direction3:Cardinal = Cardinal.EAST;
-// const direction4:Cardinal = Cardinal.WEST;
+type City = {
+    name:string, 
+    zipcode:number, 
+    population:number
+}; 
 
+const map:Map<IdCard,City> = new Map<IdCard,City>();
+const me:IdCard = {
+    lastname: "Legrand", 
+    name: "Nicolas", 
+    birth: "23/07/1986", 
+    age: 40
+}; 
 
-function sayHelloToMyFellowFrenchFrom(direction:Cardinal){
-    let msg:string = "";
-    switch(direction){
-        case Cardinal.NORTH: msg = "Bonjour du nord"; break;
-        case Cardinal.SOUTH: msg = "Bonjour du sud"; break;
-        case Cardinal.EAST: msg = "Bonjour de l'est"; break;
-        case Cardinal.WEST: msg = "Bonjour de l'ouest"; break;
-        default: msg = "bonjour";
-    }
-    console.log(msg);
-}
+const home = {
+    name:"La Loupe", 
+    zipcode: 28240, 
+    population: 3000
+};
 
-// sayHelloToMyFellowFrenchFrom(Cardinal.NORTH);
+map.set(me,home); 
 
-
-
-const employeesWithSalaries:Map<string,Cardinal> = new Map<string,Cardinal>();
-
-employeesWithSalaries.set("Sébastien",Cardinal.NORTH);
-employeesWithSalaries.set("Michaël",Cardinal.EAST);
-employeesWithSalaries.set("Perrine",Cardinal.SOUTH);
-employeesWithSalaries.set("Pascal",Cardinal.SOUTH);
-
-console.log( employeesWithSalaries.get("Michaël") );
+// const keys = map.keys();
+// console.log(keys);
