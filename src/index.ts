@@ -12,6 +12,18 @@ type City = {
     population:number
 }; 
 
+function buildReversedMap( from:Map<IdCard,City>):Map<City, IdCard>{
+    const entries = Array.from(from.entries());
+    const result:Map<City,IdCard> = new Map<City,IdCard>();
+
+    entries.forEach( 
+        (value:[IdCard, City])=>{
+            result.set(value[1], value[0]);
+        }
+    );
+    return result;
+}
+
 const map:Map<IdCard,City> = new Map<IdCard,City>();
 const me:IdCard = {
     lastname: "Legrand", 
@@ -28,5 +40,4 @@ const home = {
 
 map.set(me,home); 
 
-// const keys = map.keys();
-// console.log(keys);
+console.log(buildReversedMap(map).get(home));
