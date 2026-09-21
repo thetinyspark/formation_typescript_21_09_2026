@@ -1,12 +1,18 @@
-type Formation = {
-    date:string, 
-    participants:string[]
+type IdCard = {
+    lastname:string,
+    name:string, 
+    birth:string, 
+    age:number, 
+    retired:boolean
 }; 
 
 
-const formationTS:Formation = {
-    date: "21/09/2026", 
-    participants: ["Sébastien", "Michaël","Perrine","Pascal"]
+const nicolas:IdCard = {
+    lastname: "Legrand", 
+    name: "Nicolas", 
+    birth: "23/07/1986", 
+    age: 40, 
+    retired: false
 };
 
-console.log(formationTS);
+console.log(nicolas);
