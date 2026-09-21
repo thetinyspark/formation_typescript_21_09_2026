@@ -4,12 +4,12 @@ export class Heroe{
 
     constructor(
         public name:string = "",
-        private _hp:number = 0,
-        private _atk:number = 0, 
-        private _def:number = 0 
+        protected _hp:number = 0,
+        protected _atk:number = 0, 
+        protected _def:number = 0 
     ){}
 
-    private _calcDmg(def:number, atk:number):number{
+    protected _calcDmg(def:number, atk:number):number{
         // si la défense est supérieure à l'atk, alors on retourne
         if( def >= atk )
             return 0; 
@@ -49,7 +49,7 @@ export class Heroe{
         return this._hp;
     }
 
-    
+
     public set def(value:number){
         this._def = value;
     }
