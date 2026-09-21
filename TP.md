@@ -1,9 +1,6 @@
-TP n°6
+TP n°7
 
-Modifiez la fonction _calcDmg sur la classe Mage avec les instructions suivantes: 
+Sur le même principe que le Mage, créez la classe Barbarian qui hérite de la classe Heroe. 
 
-    - SI mon mage a encore de la mana
-        ALORS utilisez 10% de la mana restante pour la convertir en points d'ATK temporaire
-        (çàd qu'ils ne sont valables que durant cette attaque)
-
-    - SINON retournez le calcul normal (celui qui est fait dans la classe Heroe)
+Les barbares possèdent une jauge de stamina. 
+Cette jauge de stamina leur permet de renforcer leur prochain coup (tant qu'ils en ont)
