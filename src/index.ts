@@ -75,6 +75,8 @@ data.characters.forEach(
 
 
 while( characters.length > 1 ){
+
+    // on sélectionne les 2 premiers combattants
     const character1 = characters[0]; 
     const character2 = characters[1]; 
 

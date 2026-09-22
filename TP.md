@@ -1,13 +1,13 @@
-TP n°10
+TP n°11
 
-Ajoutez à la classe Heroe une propriété de type Inventory<IConsumable>
+Ajoutez des données dans ARENA_DATA pour faire se battre entre eux 
+divers profils de combattants. 
 
-- Faites en sorte que l'on puisse accéder à l'inventaire du Heroe avec 
-une fonction getInventory(). 
+- Si vous le pouvez au lieu de toujours sélectionner les deux premiers combattants du tableau de characters (dans index.ts), essayez d'en sélectionner 2 au hasard
 
-- Faites en sorte d'ajouter un objet de type Bread à l'inventaire du Heroe
-- Faites en sorte que le Heroe se prenne des dégâts
-- Puis faites en sorte que le Heroe consomme son pain et que ça lui restaure 100HP.
+- Si vous le pouvez, faites en sorte de modifier les classes Barbarian et Mage, 
+de sorte à ce que les mages et les barbares utilisent les éventuels objets
+qu'ils pourraient avoir dans leur inventaire (s'ils en ont besoin)
 
+- Vous pouvez également, si vous le souhaitez, enrichir le ARENA_DATA, avec une section weapon pour chaque character et ainsi en équiper les personnages qui en sont pourvus. 
 
-BONUS: Faites la même chose avec des options de stamina pour les barbarian et de mana pour les mages
