@@ -1,6 +1,10 @@
+import IConsumable from "../items/IConsumable";
+import Inventory from "../utils/Inventory";
+
 export class Heroe{
 
     private _reinforced:boolean = false;
+    private _inventory:Inventory<IConsumable> = new Inventory<IConsumable>();
 
     constructor(
         public name:string = "",
@@ -36,9 +40,23 @@ export class Heroe{
         opponent.hp -= this._calcDmg(opponent.def, this._atk);
     }
 
+    public useItemAt(pos:number):void{
+        const item:IConsumable|null = this._inventory.getItemAt(pos); 
+        if( item === null )
+            return;
 
+        if( item.isUsable() )
+            item.use(this);
+
+        if( item.isUsable() === false )
+            this._inventory.removeItemAt(pos);
+    }
 
     // accessors 
+
+    public getInventory():Inventory<IConsumable>{
+        return this._inventory;
+    }
 
     //issers
     public isDead():boolean{

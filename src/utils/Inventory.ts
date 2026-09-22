@@ -12,6 +12,10 @@ export default class Inventory<T>{
         return this._items[pos] as T;
     }
 
+    public removeItemAt(pos:number):void{
+        this._items.splice(pos,1);
+    }
+
     public getItems():T[]{
         return this._items;
     }

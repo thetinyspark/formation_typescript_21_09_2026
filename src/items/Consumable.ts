@@ -1,3 +1,4 @@
+import { Heroe } from "../characters/Heroe";
 import IConsumable from "./IConsumable";
 
 export default abstract class Consumable implements IConsumable{
@@ -7,7 +8,7 @@ export default abstract class Consumable implements IConsumable{
         private _numUses:number = 0
     ){}
 
-    public use():void{
+    public use(heroe:Heroe):void{
         this._numUses--;
         if( this._numUses < 0 )
             this._numUses = 0;

@@ -1,3 +1,4 @@
+import Weapon from "../items/weapons/Weapon";
 import { Heroe } from "./Heroe";
 
 export class Barbarian extends Heroe{
@@ -5,6 +6,7 @@ export class Barbarian extends Heroe{
     protected _stamina:number = 0;
     protected _staminaMax:number = 0;
     protected _critRate:number = 0;
+    private _weapon:Weapon|null = null;
 
     constructor(
         name:string = "",
@@ -23,16 +25,19 @@ export class Barbarian extends Heroe{
         // sur la classe parent, alors vous pouvez le mot clé super
         const rand = Math.round( Math.random() * 100 );
         const staminaCost = Math.round( this._staminaMax  * 0.5 );
-        const basicDmg = super._calcDmg(def,atk);
+        let dmg = super._calcDmg(def,atk);
 
-        console.log("rand:"+rand, "critRate: "+this.critRate);
         if( this._stamina < staminaCost )
-            return basicDmg;
+            return dmg;
 
         if( rand > this.critRate )
-            return basicDmg;
+            return dmg;
 
         this.stamina -= staminaCost;
+        if( this.weapon !== null ){
+            atk *= 1.5; 
+            this.weapon.use(this);
+        }
         return super._calcDmg(def, atk + staminaCost);
     }
 
@@ -52,5 +57,13 @@ export class Barbarian extends Heroe{
 
     public get critRate():number{
         return this._critRate;
+    }
+
+    public set weapon(weapon:Weapon|null){
+        this._weapon = weapon;
+    }
+
+    public get weapon():Weapon|null{
+        return this._weapon;
     }
 }
