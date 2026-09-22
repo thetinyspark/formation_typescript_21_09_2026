@@ -1,12 +1,13 @@
-TP n°9
+TP n°10
 
-Ajoutez à la factory, des fonctions de création pour les consumables suivants: 
+Ajoutez à la classe Heroe une propriété de type Inventory<IConsumable>
 
-- Un objet de type Bread (la classe existe déjà)
-- Un objet de type Sword (la classe existe déjà)
-- Un objet de type Potion (la classe n'existe pas encore)
+- Faites en sorte que l'on puisse accéder à l'inventaire du Heroe avec 
+une fonction getInventory(). 
 
-Référencez chacune de ces fonctions avec les labels suivants: 
-    - "bread", 
-    - "sword", 
-    - "potion"
+- Faites en sorte d'ajouter un objet de type Bread à l'inventaire du Heroe
+- Faites en sorte que le Heroe se prenne des dégâts
+- Puis faites en sorte que le Heroe consomme son pain et que ça lui restaure 50% de ses HP.
+
+
+BONUS: Faites la même chose avec des options de stamina pour les barbarian et de mana pour les mages

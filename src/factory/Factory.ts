@@ -1,6 +1,3 @@
-import Test from "../decorators/Test";
-
-
 class Factory{
     private _map:Map<string,Function> = new Map<string,Function>();
 
