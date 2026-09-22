@@ -1,4 +1,6 @@
-export default abstract class Consumable{
+import IConsumable from "./IConsumable";
+
+export default abstract class Consumable implements IConsumable{
 
     constructor( 
         public name:string = "",
