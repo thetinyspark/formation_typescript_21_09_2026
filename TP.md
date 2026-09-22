@@ -1,14 +1,12 @@
-TP n°8
+TP n°9
 
-Créez une classe abstraite nommée Consumable, elle aura les caractéristiques suivantes: 
+Ajoutez à la factory, des fonctions de création pour les consumables suivants: 
 
+- Un objet de type Bread (la classe existe déjà)
+- Un objet de type Sword (la classe existe déjà)
+- Un objet de type potion (la classe n'existe pas encore)
 
-- Un objet de type Consumable peut être utilisé x fois
-- Un objet de type Consumable possède une méthode use qui à chaque fois décrémente de 1 le nombre d'utilisations restantes
-- Si le nombre tombe à 0 alors l'objet de type Consumable n'est plus utilisable et sa méthode isUsable() renvoie false
-
-
-BONUS : 
-
-    - Amusez-vous à le stocker dans un inventaire puis à le retrouver afin de manipuler
-    un peu les génériques.
+Référencez chacune de ces fonctions avec les labels suivants: 
+    - "bread", 
+    - "sword", 
+    - "potion"

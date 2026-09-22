@@ -1,27 +1,34 @@
 import { Barbarian } from "./characters/Barbarian";
 import { Heroe } from "./characters/Heroe";
 import { Mage } from "./characters/Mage";
-import Inventory from "./utils/Inventory";
-import MysticInventory from "./utils/MysticInventory";
-import Sword from "./items/weapons/Sword";
-import Weapon from "./items/weapons/Weapon";
-import Bread from "./items/Bread";
-import IConsumable from "./items/IConsumable";
+import Factory from "./factory/Factory";
 
 
-const merlin:Mage = new Mage("Merlin", 1000, 10, 100, 1000);
-const conan:Barbarian = new Barbarian("Conan", 800, 30, 100, 5000);
-const batman:Heroe = new Heroe("Batman", 900, 40, 100);
-const spiderman:Heroe = new Heroe("Peter Parker", 900, 35, 100);
-const sonic:Heroe = new Heroe("Sonic", 300, 15000, 20);
+const PRODUCTION:boolean = false;
+// une factory permet de stocker des fonctions créatrices d'objets
+// ces fonctions sont associées à une clé, et en demandant à la factory
+// de créer des objets en fonction d'une certaine clé, on fait en sorte 
+// d'éxécuter la fonction en question.
+// l'intérêt d'une factory est d'avoir une classe qui nous aide à créer des objets
+// en fonction d'une configuration qui peut être changeante en fonction du contexte
+const myFactory:Factory = new Factory();
 
-const bread:IConsumable = new Bread("bread",1);
-const sword:IConsumable = new Sword("Excalibur", 1000, 100);
+// if( PRODUCTION){
+//     myFactory.register(
+//         "SpecialWarrior",
+//         (name:string, hp:number, atk:number, def:number, mana:number ) =>{
+//             return new Mage(name,hp,atk,def,mana);
+//         }
+//     );
+// }
+// else{
+    myFactory.register(
+        "SpecialWarrior",
+        (name:string, hp:number, atk:number, def:number, stamina:number ) =>{
+            return new Barbarian(name,hp,atk,def,stamina);
+        }
+    );
+// }
 
-const inventory:Inventory<IConsumable> = new Inventory<IConsumable>();
-
-inventory.addItem(bread);
-inventory.addItem(sword);
-
-console.log(inventory.getItemAt(0)?.isUsable());
-console.log(inventory.getItemAt(1)?.isUsable());
+const merlin:Heroe = myFactory.create<Heroe>("SpecialWarrior", "Merlin",1000,10,100,1000) as Heroe;
+const gandalf:Heroe = myFactory.create<Heroe>("SpecialWarrior", "Gandalf",1,1,1,1) as Heroe;
