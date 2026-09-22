@@ -7,7 +7,9 @@ export class Heroe{
         protected _hp:number = 0,
         protected _atk:number = 0, 
         protected _def:number = 0 
-    ){}
+    ){
+        this._reinforce = this._reinforce.bind(this);
+    }
 
     protected _calcDmg(def:number, atk:number):number{
         // si la défense est supérieure à l'atk, alors on retourne
@@ -17,8 +19,17 @@ export class Heroe{
             return atk - def; // sinon on retourne la diff
     }
 
-    public reinforce():void{
+    // la fonction fléchée ou le bind font la même chose
+    // à savoir, lier la fonction à un contexte d'éxécution précis
+    // private _reinforce = ():void=>{
+    private _reinforce ():void{
+        console.log(this);
         this._reinforced = true;
+    }
+
+    public reinforce():void{
+        this._reinforce();
+        setTimeout( this._reinforce, 5000 );
     }
 
     public fight(opponent:Heroe):void{

@@ -1,19 +1,7 @@
+import Test from "../decorators/Test";
+
+
 class Factory{
-
-    // private static _instance:Factory|null = null;
-
-    // ça brise la pattern S.O.L.I.D
-    // parce que notre classe doit gérer sa propre instance unique
-    // et également gérer la création des autres objets 
-
-    // public static getInstance():Factory{
-    //     if( Factory._instance === null ){
-    //         Factory._instance = new Factory();
-    //     }
-
-    //     return Factory._instance;
-    // }
-
     private _map:Map<string,Function> = new Map<string,Function>();
 
     public register(key:string, func:Function){

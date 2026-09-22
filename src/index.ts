@@ -5,7 +5,7 @@ import Bread from "./items/Bread";
 import Potion from "./items/Potion";
 import Sword from "./items/weapons/Sword";
 
-
+new Bread();
 
 factory.register(
     AppConstants.WARRIOR,
@@ -14,12 +14,12 @@ factory.register(
     }
 );
 
-factory.register(
-    AppConstants.BREAD,
-    (name:string, uses:number ) =>{
-        return new Bread(name,uses);
-    }
-);
+// factory.register(
+//     AppConstants.BREAD,
+//     (name:string, uses:number ) =>{
+//         return new Bread(name,uses);
+//     }
+// );
 
 factory.register(
     AppConstants.SWORD,
@@ -35,6 +35,10 @@ factory.register(
     }
 );
 
+const bread = factory.create<Bread>(AppConstants.BREAD, "pain croustillant", 1) as Bread;
+bread.use();
+console.log(bread.isUsable());
 
-console.log( factory === factory );
+
+
 
